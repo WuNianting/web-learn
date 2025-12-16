@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "楷书", sans-serif;
+        }
+        body {
+            background-color: #0547372a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .register-box {
+            background-color: #3db97b57;
+            padding: 30px;
+           border-radius: 800px;
+            box-shadow: 0 0 1000px rgba(192, 255, 3, 0.542);
+            width: 450px;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-item {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+            color: #555555;
+            font-size: 14px;
+            
+        }
+        input {
+            width: 280px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .tip {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+            margin-left: 110px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-left: 10px;
+            display: none;
+        }
+        .agree {
+            margin-left: 110px;
+            font-size: 14px;
+            color: #555;
+        }
+        button {
+            margin-left: 110px;
+            background-color: #ff0000;
+            color: #fff;
+            border: solid;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor:pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #19b404;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-box">
+        <h2 class="title">用户注册</h2>
+        <form action="" onsubmit="return checkForm()">
+            <div class="form-item">
+                <label>*昵称：</label>
+                <input type="text" id="nickname">
+                <span class="error" id="nicknameError">输入的用户名不合法</span>
+                <div class="tip">昵称4-16位，以字母开头</div>
+            </div>
+            <div class="form-item">
+                <label>*设置密码：</label>
+                <input type="password" id="pwd">
+                <span class="error" id="pwdError">密码设置不符合规则</span>
+                <div class="tip">密码8-20位字母数字组合</div>
+            </div>
+            <div class="form-item">
+                <label>*确认密码：</label>
+                <input type="password" id="repwd">
+                <span class="error" id="repwdError">两次密码设置不一致</span>
+            </div>
+            <div class="form-item">
+                <label>*手机号：</label>
+                <input type="text" id="phone">
+                <span class="error" id="phoneError">不是一个有效的手机号</span>
+            </div>
+            <div class="form-item">
+                <label>*注册邮箱：</label>
+                <input type="text" id="email">
+                <span class="error" id="emailError">邮箱格式不正确</span>
+                <div class="tip">输入一个常用邮箱，方便密码找回</div>
+            </div>
+            <div class="agree">
+                <input type="checkbox" id="agree">
+                <label for="agree">我已阅读并同意《注册协议》</label>
+            </div>
+            <button type="submit">立即注册</button>
+        </form>
+    </div>
+
+    <script>
+        function checkForm() {
+            let isValid = true;
+
+            // 昵称校验
+            let nickname = document.getElementById('nickname').value.trim();
+            let nicknameReg = /^[a-zA-Z][a-zA-Z0-9_]{3,15}$/;
+            if (!nicknameReg.test(nickname)) {
+                document.getElementById('nicknameError').style.display = 'inline';
+                isValid = false;
+            } else { 
+                document.getElementById('nicknameError').style.display = 'none';
+            } 
+
+            // 密码校验
+            let pwd = document.getElementById("pwd").value; 
+            let pwdReg = /^[a-zA-Z0-9]{8,20}$/;
+            if (!pwdReg.test(pwd)) {
+                document.getElementById('pwdError').style.display = 'inline';
+                isValid = false;
+            } else {
+                document.getElementById('pwdError').style.display = 'none';
+            }
+
+            // 确认密码校验
+            let repwd = document.getElementById('repwd').value;
+            if (repwd !== pwd) {
+                document.getElementById('repwdError').style.display = 'inline';
+                isValid = false;
+            } else {
+                document.getElementById('repwdError').style.display = 'none';
+            }
+
+            // 手机号校验
+            let phone = document.getElementById('phone').value.trim();
+            let phoneReg = /^1[3-9]\d{9}$/;
+            if (!phoneReg.test(phone)) {
+                document.getElementById('phoneError').style.display = 'inline';
+                isValid = false;
+            } else {
+                document.getElementById('phoneError').style.display = 'none';
+            }
+
+            // 邮箱校验
+            let email = document.getElementById('email').value.trim();
+            let emailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            if (!emailReg.test(email)) {
+                document.getElementById('emailError').style.display = 'inline';
+                isValid = false;
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+            }
+
+            // 协议勾选校验
+            let agree = document.getElementById('agree').checked;
+            if (!agree) {
+                alert('请阅读并同意《注册协议》');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>
