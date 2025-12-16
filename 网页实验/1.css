@@ -1,0 +1,56 @@
+ .navbar_all{
+    background-color: green;
+    font-size: large;
+    z-index: 999;
+    position: relative;
+   }
+   .navbar_list{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    z-index: 999; 
+   }
+   .navbar_item {
+    position: relative; 
+    z-index: 999; 
+    
+   }
+   .navbar_item a{
+    display: block;
+     color: rgba(248, 253, 253, 0.959);
+    padding: 10px 30px;
+    z-index: 999; 
+    
+   }
+   .dropmenu{
+    list-style: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 100%;
+    min-width: 150px;
+    background-color:rgba(7, 181, 7, 0.723);
+    display: none; 
+    z-index: 999; 
+    
+   }
+.navbar_item:hover 
+.dropmenu{
+    display: block;
+}
+.dropmenu  a:hover{
+    background-color: rgba(235, 246, 246, 0.497);
+}
+.items  li a:hover{
+    background-color: rgba(214, 217, 216, 0.518);
+    color: green;   
+}
+.items a{
+    color: rgb(25, 25, 25);
+}
+.items  li a{
+    transition: color 0.3s,background-color 0.3s;   
+}
+.dropmenu  a{
+    transition: background-color 0.2s;
+}

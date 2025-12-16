@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <style>
+       @import url(2.css);
+    </style>
+    
+</head>
+<body>
+    <div class="reg_box">
+        
+        <div style="height: 450px;" class="reg">     
+            <div style="display: flex;gap: 8px; ">  
+            <a href="index.html"><img style="width: 80px;" src="image/return.png" alt=""></a>
+           <span style="writing-mode: vertical-rl ;margin-top: 10px;margin-left: -20px;"><strong>返回首页</strong></span>
+           </div>  
+           
+       <form action="" onsubmit="return reg_Reg()" >
+        
+        <h2 style="text-align: center;font-size: 33px;margin-top:-25px ;">用户登录</h2>
+
+       <div class="form-group"> <label class="lable_box" for="">账号</label><input placeholder="请输入用户名/用户名/邮箱/手机号" class="input_form" type="text"></div>
+       <div class="form-group"> <label class="lable_box" for="">密码</label><input placeholder="请输入密码" class="input_form" type="password"></div>
+      
+       
+       <div class="agree-group"><input type="checkbox" name="" id="agree">
+       <label class="agree-text" > 我已阅读并同意<a href="">服务协议</a>和<a href="">隐私保护指引</a> </label>
+       </div> 
+        
+       <button  style="margin-left: 110px;" type="submit"    class="reg_button" >登录</button>
+       
+        
+       </form>
+       <form action="" style="display: flex;" onsubmit="return false">
+        <button style="margin-left: 300px;margin-bottom: 100px;display: flex;margin-top: -47.9px;" onclick="window.location.href='注册.html'" class="reg_button" type="text">注册</button>
+       </form>
+       </div>
+    </div>
+    <script>
+        function reg_Reg(){
+          
+            //
+            let agree = document.getElementById('agree').checked;
+            if (!agree) {
+                alert('请阅读并同意《注册协议》');
+                isValid = false;
+            }
+            return isvalid;
+        }
+    </script>
+</body>
+</html>

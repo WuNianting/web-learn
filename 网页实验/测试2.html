@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    .navbar{
+        background-color: aqua;
+        font-size: large;
+    }
+    .navbar_list{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        
+
+    }
+   .navbar_item{
+    position: relative;
+   }
+   .navbar_item a{
+    display: block;
+    color: brown;
+    text-decoration: none;
+    padding: 10px 60px;
+   }
+   .navbar_item a:hover{
+    background-color: fuchsia;
+   }
+   .dropdown-menu{
+    position: absolute;
+    list-style: none;
+    background-color: coral;
+    top: 100%;
+   
+    margin: 0;
+    padding: 0;
+    min-width: 150px;
+    display: none;
+    
+   }
+   .dropdown-menu li a:hover{
+    background-color: forestgreen;
+   }
+   .has-dropdown:hover .dropdown-menu{
+    display: block;
+    
+   }
+    
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <ul class="navbar_list">
+        <li class="navbar_item has-dropdown"><a href="">a</a>
+          <ul class="dropdown-menu">
+            <li><a href="">a1</a></li>
+            <li><a href="">a2</a></li>
+            <li><a href="">a3</a></li>
+          </ul>
+        </li>
+        <li class="navbar_item has-dropdown"><a href="">b</a>
+        <ul class="dropdown-menu">
+            <li><a href="">b1</a></li>
+            <li><a href="">b2</a></li>
+            <li><a href="">b3</a></li>
+            <li><a href="">b4</a></li>
+        </ul>
+        </li>
+        <li class="navbar_item"><a href="">c</a></li>
+    </ul>
+</div>
+</body>
+</html>

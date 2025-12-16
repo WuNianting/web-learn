@@ -1,0 +1,82 @@
+        body{
+            margin: 0;
+            background:linear-gradient(to right,rgba(4, 123, 215, 0.455),rgba(148, 3, 226, 0.581));
+            min-height: 100vh;
+            
+        }  
+        .reg_box{           
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            
+        }
+        .disapper a{
+            text-decoration: none;
+            color: blue;           
+        }
+        .reg{
+            border-radius: 15px;
+             border:1px solid rgba(128, 0, 128, 0.215);
+            width: 600px;
+            height: 700px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.193);
+        }
+        .form-group{
+           display: flex;
+           margin-bottom: 15px;
+           align-items: center;
+        }
+        .agree-text a{
+            text-decoration: none;
+            color: blue;
+        }
+        .agree-text a:hover{
+            color: rgba(255, 0, 0, 0.54);
+        }
+        .lable_box{
+           width: 80px;
+           text-align: right;
+           margin-right: 10px;
+           color: rgb(0, 0, 0);
+           font-size: 20px;
+           padding: 10px;
+        }
+        .input_form{
+       width: 350px;
+      padding: 12px 12px;
+      border: 0;
+      border-radius: 4px;
+      outline: none;
+      background-color: rgba(91, 23, 120, 0.167);
+      font-size: large;
+      color:rgba(2, 2, 2, 0.775);
+      
+
+        }
+        .agree-group {
+      margin-left: 105px;
+      margin-bottom: 20px;
+    }
+    .agree-text{
+        font-size: 19px;
+        color: rgb(0, 0, 0);
+    }
+    #agree{
+        transform: scale(1.2);
+    }
+    .reg_button{
+        margin-left: 29%;
+      padding: 10px 70px;
+      background-color: #40a0ffe4;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 19px;
+    }
+    .reg_button:hover{
+        background-color: #40a0ff8d;
+    }

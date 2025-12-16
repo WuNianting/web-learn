@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册界面</title>
+    <style type="text/css">
+        @import url(2.css);
+        .form_error{
+            font-size: small;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="reg_box">
+        
+        <div class="reg">     
+            <div style="display: flex;gap: 8px; ">  
+            <a href="index.html"><img style="width: 80px;" src="image/return.png" alt=""></a>
+           <span style="writing-mode: vertical-rl ;margin-top: 10px;margin-left: -20px;"><strong>返回首页</strong></span>
+           </div>  
+           <div style="display: flex;gap: 8px;justify-content: right;margin-top: -85px; ">  
+          
+           <span style="writing-mode: vertical-rl ;margin-top: 10px;margin-right: -12px;"><strong>返回登录</strong></span>
+             <a href="登录.html"><img style="width: 80px;display: flex;" src="image/return 2.jpg" alt=""></a>
+           </div>
+       <form action="" onsubmit="return reg_Reg()">
+        
+        <h2 style="text-align: center;font-size: 33px;margin-top:-25px ;">用户注册</h2>
+
+       <div class="form-group"> <label class="lable_box" for="">用户名</label><input placeholder="请输入用户名(长度8-10位)" class="input_form" type="text" id="nickname"><span style="display: none;" class="form_error" id="nickname_error">名字不合法!</span></div>
+       <div class="form-group"><label class="lable_box" for="">账号</label><input placeholder="请输入账号(长度8-10位)" id="account" class="input_form" type="text"><span style="display: none;" class="form_error" id="account_error">账号不合法！</span></div> 
+       <div class="form-group"> <label class="lable_box" for="">密码</label><input placeholder="请输入密码(大写字母开头,长度8-16位)" class="input_form" id="password" type="password"><span style="display: none;" class="form_error" id="password_error">密码不合法!</span></div>
+        <div class="form-group"><label class="lable_box" for="">确认密码</label><input  placeholder="请再次输入密码" class="input_form" id="re_password" type="password"><span style="display: none;" class="form_error" id="re_password_error">两次密码不一致!</span></div>
+        <div class="form-group"> <label class="lable_box" for="">手机号</label><input placeholder="请输入手机号" id="phonenum" class="input_form" type="tel"><span style="display: none; " class="form_error" id="phonenum_error">手机号不合法!</span></div>
+       <div class="form-group"> <label class="lable_box" for="">邮箱</label><input placeholder="请输入邮箱" id="email" class="input_form" type="email">  <span style="display:none" class="form_error" id="email_error" >邮箱不合法!</span></div>
+       
+       <div class="agree-group"><input type="checkbox" name="" id="agree">
+       <label class="agree-text" > 我已阅读并同意<a href="">服务协议</a>和<a href="">隐私保护指引</a> </label>
+       </div> 
+        
+       <button class="reg_button" type="submit">注册账号</button>
+        
+       </form>
+       </div>
+    </div>
+    <script>
+        function reg_Reg(){
+            let isvalid=true;
+            let nickname=document.getElementById('nickname').value.trim();
+            let nickname_reg=/^[a-zA-Z1-9]{8,10}$/;
+            if(!nickname_reg.test(nickname)){
+                document.getElementById('nickname_error').style.display='inline';
+                isvalid=false;
+            }else{
+                document.getElementById('nickname_error').style.display="none";
+            }
+            //
+            let account=document.getElementById("account").value;
+            let account_reg=/^[a-zA-Z0-9]{8,10}$/;
+            if(!account_reg.test(account)){
+                document.getElementById('account_error').style.display='inline';
+                isvalid=false;
+            }else{document.getElementById('account_error').style.display='none';}
+            //
+            let password=document.getElementById("password").value;
+            let password_reg=/^[A-Z][a-zA-Z0-9]{7,15}$/;
+            if(!password_reg.test(password)){
+                document.getElementById("password_error").style.display="inline";
+                isvalid=false;
+            }else{document.getElementById("password_error").style.display="none";}
+            //A123456789
+            let re_password=document.getElementById("re_password").value;
+            if(re_password!==password){
+                document.getElementById("re_password_error").style.display="inline";
+                isvalid=false;
+            }else{
+                document.getElementById("re_password_error").style.display="none";
+            }
+            //手机号
+            let phonenum=document.getElementById("phonenum").value.trim();
+            let phonenum_reg=/^1[3-9][0-9]{9}$/;
+            if(!phonenum_reg.test(phonenum)){
+                document.getElementById("phonenum_error").style.display="inline";
+                isvalid=false;
+            }else{document.getElementById("phonenum_error").style.display="none";}
+            //邮箱
+            let email=document.getElementById("email").value.trim();
+            let email_reg=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            if(!email_reg.test(email)){
+                document.getElementById("email_error").style.display='inline';
+                isvalid=false;
+            }else{document.getElementById("email_error").style.display='none'}
+            //
+            let agree = document.getElementById('agree').checked;
+            if (!agree) {
+                alert('请阅读并同意《注册协议》');
+                isValid = false;
+            }
+            return isvalid;
+        }
+    </script>
+</body>
+</html>
